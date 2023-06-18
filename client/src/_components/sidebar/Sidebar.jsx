@@ -65,8 +65,8 @@ export default function Sidebar() {
         <span>Home</span>
       </button>
       <button onClick={() => handleHeaderClicked("tools")}>
-        <span className="material-symbols-outlined"> build </span>
-        <span>Tools</span>
+        <span className="material-symbols-outlined"> euro </span>
+        <span>Finance</span>
         <span className="material-symbols-outlined"> expand_more </span>
       </button>
       <div id="tools" className="subnav">
@@ -83,8 +83,8 @@ export default function Sidebar() {
         </div>
       </div>
       <button onClick={() => handleHeaderClicked("settings")}>
-        <span className="material-symbols-outlined"> settings </span>
-        <span>Settings</span>
+        <span className="material-symbols-outlined"> Groups </span>
+        <span>Ressource Humaines</span>
         <span className="material-symbols-outlined"> expand_more </span>
       </button>
       <div id="settings" className="subnav">
@@ -104,8 +104,32 @@ export default function Sidebar() {
         </div>
       </div>
       <button>
-        <span className="material-symbols-outlined"> account_circle </span>
-        <span>Profile</span>
+        <span className="material-symbols-outlined"> Inventory </span>
+        <span>Stocks</span>
+      </button>
+      <button>
+        <span class="material-symbols-outlined">Point_of_sale</span>
+        <span>Ventes</span>
+      </button>
+      <button>
+        <span className="material-symbols-outlined"> Storefront </span>
+        <span>Achats</span>
+      </button>
+      <button>
+        <span className="material-symbols-outlined"> Conveyor_Belt </span>
+        <span>Production</span>
+      </button>
+      <button>
+        <span className="material-symbols-outlined"> Local_Shipping </span>
+        <span>Logistique</span>
+      </button>
+      <button>
+        <span className="material-symbols-outlined"> Note_Alt </span>
+        <span>Projet</span>
+      </button>
+      <button>
+        <span className="material-symbols-outlined"> Contacts </span>
+        <span>relation client</span>
       </button>
       <button>
         <span className="material-symbols-outlined"> logout </span>
