@@ -1,3 +1,25 @@
+/**
+** Base
+*/
+main {
+  margin-left: 270px;
+}
+
+a {
+  text-decoration: none;
+  color: #f7f7f7;
+}
+
+#root,
+body,
+html,
+.container {
+  height: 100%;
+}
+
+/**
+** Components
+*/
 * {
   box-sizing: border-box;
 }
@@ -118,5 +140,44 @@ button {
   font-size: 22px;
   transition: 0.3s;
 }
+
+.client table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+}
+
+.select {
+  color: black;
+}
+
+/**
+** Layouts
+*/
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+  width: 50%;
+}
+
+/**
+** Pages
+*/
+/**
+** Themes
+*/
+/**
+** Utils
+*/
+/**
+** Vendors
+*/
 
 /*# sourceMappingURL=syle.css.map */

@@ -8,6 +8,7 @@ import {
 // Reducer
 const initialState = {
   username: "",
+  role: null,
   isLoading: false,
   isLoggedIn: false,
   error: null,
@@ -22,7 +23,8 @@ export const authReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         isLoggedIn: true,
-        username: action.payload,
+        username: action.payload.username,
+        role: action.payload.role,
         error: null,
       };
     case LOGIN_FAILURE:

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { logout } from "../../redux/actions/authAction";
 import { useDispatch } from "react-redux";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ export default function Sidebar() {
   /**
    * Logout
    */
+
   const [navigateToLogin, setNavigateToLogin] = useState(false);
 
   const handleLogout = () => {
@@ -58,12 +59,14 @@ export default function Sidebar() {
     <aside className="sidebar">
       <header>
         <img src="logo.svg" />
-        <span> DataHub </span>
+        <span> Heost </span>
       </header>
+
       <button>
         <span className="material-symbols-outlined"> home </span>
         <span>Home</span>
       </button>
+
       <button onClick={() => handleHeaderClicked("tools")}>
         <span className="material-symbols-outlined"> euro </span>
         <span>Finance</span>
@@ -82,6 +85,7 @@ export default function Sidebar() {
           </button>
         </div>
       </div>
+
       <button onClick={() => handleHeaderClicked("settings")}>
         <span className="material-symbols-outlined"> Groups </span>
         <span>Ressource Humaines</span>
@@ -103,34 +107,64 @@ export default function Sidebar() {
           </button>
         </div>
       </div>
+
       <button>
         <span className="material-symbols-outlined"> Inventory </span>
         <span>Stocks</span>
       </button>
+
       <button>
-        <span class="material-symbols-outlined">Point_of_sale</span>
+        <span className="material-symbols-outlined">Point_of_sale</span>
         <span>Ventes</span>
       </button>
+
       <button>
         <span className="material-symbols-outlined"> Storefront </span>
         <span>Achats</span>
       </button>
+
       <button>
         <span className="material-symbols-outlined"> Conveyor_Belt </span>
         <span>Production</span>
       </button>
+
       <button>
         <span className="material-symbols-outlined"> Local_Shipping </span>
         <span>Logistique</span>
       </button>
-      <button>
+
+      <button onClick={() => handleHeaderClicked("project")}>
         <span className="material-symbols-outlined"> Note_Alt </span>
-        <span>Projet</span>
+        <span>Affaire</span>
+        <span className="material-symbols-outlined"> expand_more </span>
       </button>
+      <div id="project" className="subnav">
+        <div className="subnav-inner">
+          <button>
+            <span>
+              <Link to={"/business/new"}>Nouveau</Link>
+            </span>
+          </button>
+          <button>
+            <span>
+              <Link to={"/business/all"}>Liste des projets</Link>
+            </span>
+          </button>
+          <button>
+            <span>
+              <Link to={"/new_estimate"}>Crée un devis</Link>
+            </span>
+          </button>
+        </div>
+      </div>
+
       <button>
         <span className="material-symbols-outlined"> Contacts </span>
-        <span>relation client</span>
+        <span>
+          <Link to={"/client"}> Relation client </Link>
+        </span>
       </button>
+
       <button>
         <span className="material-symbols-outlined"> logout </span>
         <span onClick={handleLogout}>Déconnexion</span>

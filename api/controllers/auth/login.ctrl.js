@@ -29,6 +29,7 @@ exports.login = (req, res, next) => {
               {
                 _id: user.id,
                 username: user.username,
+                role: user.role,
               },
               process.env.JWT,
               {
@@ -45,6 +46,7 @@ exports.login = (req, res, next) => {
               username: user.username,
               lastName: user.lastname,
               lastSeen: user.lastSeen,
+              role: user.role,
             };
             console.log("ici");
             res.status(200).json({ _user, _session_user });

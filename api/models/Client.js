@@ -1,42 +1,34 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const User = sequelize.define(
-  "user",
+const Client = sequelize.define(
+  "client",
   {
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
-    username: {
+    client_name: {
       type: DataTypes.STRING,
     },
-    firstName: {
+    client_contact_name: {
       type: DataTypes.STRING,
     },
-    lastName: {
+    client_contact_mail: {
       type: DataTypes.STRING,
     },
-    password: {
+    client_contact_number: {
       type: DataTypes.STRING,
     },
-    mail: {
-      type: DataTypes.STRING,
-      unique: true,
+    client_total_business: {
+      type: DataTypes.INTEGER,
     },
-    createdAt: {
+    createAt: {
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    last_business: {
       type: DataTypes.DATE,
-    },
-    lastSeen: {
-      type: DataTypes.DATE,
-    },
-    role: {
-      type: DataTypes.STRING,
-      defaultValue: 1,
     },
   },
   {
@@ -45,6 +37,6 @@ const User = sequelize.define(
   }
 );
 
-User.sync({ alter: false });
+Client.sync({ alter: true });
 
-module.exports = User;
+module.exports = Client;

@@ -33,6 +33,7 @@ const LoginPage = ({ username, isLoading, error, login, checkLoggedIn }) => {
 
   useEffect(() => {
     if (username) {
+      console.log(username);
       return navigate("/");
     }
   }, [username, navigate]);

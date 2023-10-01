@@ -36,4 +36,8 @@ syncDB();
 
 app.use("/api/auth/", require("./routes/auth.route"));
 
+app.use("/api/client/", require("./routes/client.route"));
+
+app.use("/api/business/", require("./routes/business.route"));
+
 module.exports = app;

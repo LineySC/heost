@@ -5,7 +5,7 @@ exports.register = (req, res, next) => {
   console.log(req.body);
   req.body.email = req.body.email.toLowerCase();
 
-  const { username, email, password, passwordCheck } = req.body;
+  const { username, firstname, lastname, email, password, passwordCheck } = req.body;
 
   if (password !== passwordCheck) {
     res.status(400).json("Le mot de passe saisie ne sont pas identique");
@@ -14,6 +14,8 @@ exports.register = (req, res, next) => {
       User.create({
         username: username,
         password: hash,
+        firstname: firstname,
+        lastname: lastname,
         mail: email,
         createdAt: Date.now(),
         updateAd: Date.now(),

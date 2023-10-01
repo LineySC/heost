@@ -12,16 +12,21 @@ function App() {
 
   useEffect(() => {
     dispatch(checkLoggedIn());
-  }, [dispatch]);
+  }, []);
 
-  if (!isLoggedIn && location.pathname !== "/login") {
+  /*Solution provisoire */
+  const checkLocal = localStorage.getItem("loggedInUser");
+
+  if (checkLocal === null && location.pathname !== "/login") {
     window.location.href = "/login"; // Redirection vers la page de connexion si l'utilisateur n'est pas connecté
     return null; // Arrêter le rendu du composant pour éviter la boucle
   }
 
   return (
     <>
-      <Router />
+      <main className="container">
+        <Router />
+      </main>
       {isLoggedIn && location.pathname !== "/login" && <Sidebar />}
     </>
   );
