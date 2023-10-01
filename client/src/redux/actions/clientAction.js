@@ -8,7 +8,7 @@ export const GET_ALL_CLIENTS = "GET_ALL_CLIENTS";
 export const CLIENT_SUCCESS = "CLIENT_SUCCESS";
 export const CLIENT_FAILURE = "CLIENT_FAILURE";
 
-export const createClient = (data, errorCallback) => {
+export const createClient = (data) => {
   return async (dispatch) => {
     dispatch({ type: CREATE_CLIENT });
     try {
@@ -16,16 +16,11 @@ export const createClient = (data, errorCallback) => {
       if (response.status === 201) {
         const data = response.data;
         dispatch({ type: CLIENT_SUCCESS, payload: data });
-      } else {
-        const errorData = await response.json();
-        const errorMessage = errorData || "erreur de connexion avec le serveur";
-        dispatch({ type: CLIENT_FAILURE, payload: errorMessage });
-        errorCallback(errorMessage);
       }
     } catch (error) {
       dispatch({
         type: CLIENT_FAILURE,
-        payload: "Une erreur c'est produite.",
+        payload: error.response.data,
       });
     }
   };

@@ -11,6 +11,7 @@ const Client = sequelize.define(
     },
     client_name: {
       type: DataTypes.STRING,
+      unique: true,
     },
     client_contact_name: {
       type: DataTypes.STRING,
@@ -24,7 +25,7 @@ const Client = sequelize.define(
     client_total_business: {
       type: DataTypes.INTEGER,
     },
-    createAt: {
+    createdAt: {
       type: DataTypes.DATE,
     },
     last_business: {

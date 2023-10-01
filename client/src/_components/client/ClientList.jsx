@@ -24,8 +24,8 @@ export default function ClientList({ allClients }) {
                   <td>{client.client_contact_name}</td>
                   <td>{client.client_contact_mail}</td>
                   <td>{client.client_contact_number}</td>
-                  <td>{client.lastBusiness}</td>
-                  <td>{client.totalBusiness}</td>
+                  <td>{client.last_business}</td>
+                  <td>{client.client_total_business}</td>
                   <td>{client.createdAt}</td>
                 </tr>
               );

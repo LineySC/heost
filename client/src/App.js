@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { checkLoggedIn } from "./redux/actions/authAction";
 import { useLocation } from "react-router-dom";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const dispatch = useDispatch();
@@ -27,6 +30,17 @@ function App() {
       <main className="container">
         <Router />
       </main>
+      <ToastContainer
+        position="top-right"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        draggable={true}
+        pauseOnVisibilityChange
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
       {isLoggedIn && location.pathname !== "/login" && <Sidebar />}
     </>
   );

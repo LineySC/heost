@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 
 import { useNavigate, Link } from "react-router-dom";
 
+import ConfigFile from "./../../configfile.json";
+
 export default function Sidebar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -59,7 +61,7 @@ export default function Sidebar() {
     <aside className="sidebar">
       <header>
         <img src="logo.svg" />
-        <span> Heost </span>
+        <span> {ConfigFile.name} </span>
       </header>
 
       <button>
