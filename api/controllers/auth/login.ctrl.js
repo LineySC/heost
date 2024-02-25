@@ -44,11 +44,11 @@ exports.login = (req, res, next) => {
 
             const _user = {
               username: user.username,
-              lastName: user.lastname,
+              firstname: user.firstName,
+              lastname: user.lastName,
               lastSeen: user.lastSeen,
               role: user.role,
             };
-            console.log("ici");
             res.status(200).json({ _user, _session_user });
           }
         })
@@ -57,7 +57,6 @@ exports.login = (req, res, next) => {
         });
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json({ message: "Aucun utilisateur a été trouvé" });
     });
 };

@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
+const Business = require("./Business");
 
 const Client = sequelize.define(
   "client",
@@ -9,9 +10,15 @@ const Client = sequelize.define(
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
+    siret: {
+      type: DataTypes.INTEGER,
+    },
+    tva_intra: {
+      type: DataTypes.STRING,
+    },
     client_name: {
       type: DataTypes.STRING,
-      unique: true,
+      primaryKey: true,
     },
     client_contact_name: {
       type: DataTypes.STRING,
@@ -20,6 +27,30 @@ const Client = sequelize.define(
       type: DataTypes.STRING,
     },
     client_contact_number: {
+      type: DataTypes.STRING,
+    },
+    client_invoice_address: {
+      type: DataTypes.STRING,
+    },
+    client_invoice_postal: {
+      type: DataTypes.STRING,
+    },
+    client_invoice_city: {
+      type: DataTypes.STRING,
+    },
+    client_invoice_region: {
+      type: DataTypes.STRING,
+    },
+    client_delivery_address: {
+      type: DataTypes.STRING,
+    },
+    client_delivery_postal: {
+      type: DataTypes.STRING,
+    },
+    client_delivery_city: {
+      type: DataTypes.STRING,
+    },
+    client_delivery_region: {
       type: DataTypes.STRING,
     },
     client_total_business: {
@@ -32,12 +63,13 @@ const Client = sequelize.define(
       type: DataTypes.DATE,
     },
   },
+
   {
     timestamps: false,
     freezeTableName: true,
   }
 );
 
-Client.sync({ alter: true });
+Client.sync({ alter: false });
 
 module.exports = Client;

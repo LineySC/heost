@@ -3,6 +3,7 @@ import { getClients } from "../../redux/actions/clientAction";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ClientList from "../../_components/client/ClientList";
+import { Box, Typography, Button } from "@mui/material";
 
 export default function Client() {
   const allClients = useSelector((state) => state.client.data);
@@ -14,18 +15,19 @@ export default function Client() {
     };
     fetch();
   }, []);
-
+  console.log(allClients);
   return (
     <>
-      <h1>Relation Clients</h1>
+      <Box>
+        <Typography variant="h4">Relations Clients</Typography>
 
-      <div className="client">
-        <h2>
-          <Link to="/create_client">Ajouter un nouveau client</Link>
-        </h2>
-        <p>Listing des clients</p>
-        <ClientList allClients={allClients} />
-      </div>
+        <Box className="client">
+          <Button component={Link} to="/create_client">
+            Ajouter un nouveau client
+          </Button>
+          <ClientList allClients={allClients} />
+        </Box>
+      </Box>
     </>
   );
 }

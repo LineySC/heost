@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes, INTEGER } = require("sequelize");
 const sequelize = require("../config/db");
+const Client = require("./Client");
 
 const Business = sequelize.define(
   "business",
@@ -15,6 +16,9 @@ const Business = sequelize.define(
     },
     date_of_demand: {
       type: DataTypes.DATE,
+    },
+    client_id: {
+      type: Sequelize.UUID,
     },
     client_name: {
       type: DataTypes.STRING,
@@ -36,6 +40,7 @@ const Business = sequelize.define(
     },
     advancement: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     in_progress: {
       type: DataTypes.INTEGER,

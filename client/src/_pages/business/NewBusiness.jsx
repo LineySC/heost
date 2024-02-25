@@ -19,9 +19,10 @@ export default function NewBusiness() {
       dispatch(getClients());
     };
     fetch();
-  }, [dispatch]);
+  }, [dispatch, getClients]);
 
   const [businessForm, setBusinessForm] = useState({
+    id: "",
     name: "",
     designation: "",
     nbHours: "",
@@ -38,6 +39,7 @@ export default function NewBusiness() {
   };
 
   let option = [];
+
   isEmpty(allClients) ||
     allClients.forEach((element) => {
       option.push({

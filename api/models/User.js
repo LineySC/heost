@@ -25,6 +25,9 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       unique: true,
     },
+    jobMail: {
+      type: DataTypes.STRING,
+    },
     createdAt: {
       type: DataTypes.DATE,
     },

@@ -41,7 +41,7 @@ export const checkLoggedIn = () => {
     if (loggedInUser) {
       dispatch({ type: LOGIN_SUCCESS, payload: dispatch, value: true });
     } else {
-      console.error("Error au dispatch");
+      dispatch({ type: LOGIN_FAILURE, payload: dispatch, value: false });
     }
   };
 };

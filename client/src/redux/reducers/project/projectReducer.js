@@ -1,6 +1,6 @@
 import {
   CREATE_PROJECT,
-  MODIFY_PROJECT,
+  UPDATE_PROJECT,
   DELETE_PROJECT,
   ONE_PROJECT,
   ALL_PROJECT,
@@ -9,6 +9,7 @@ import {
 } from "../../actions/project/projectAction";
 
 const initialState = {
+  data: [],
   isLoading: false,
   error: null,
 };
@@ -17,7 +18,7 @@ export const projectReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_PROJECT:
       return { ...state, isLoading: true, error: null };
-    case MODIFY_PROJECT:
+    case UPDATE_PROJECT:
       return {
         ...state,
         isLoading: true,
@@ -36,17 +37,18 @@ export const projectReducer = (state = initialState, action) => {
         error: null,
       };
     case ALL_PROJECT:
+      console.log(action.payload);
       return {
         ...state,
         data: action.payload,
-        isLoading: true,
+        isLoading: false,
         error: null,
       };
     case PROJECT_FAILURE:
       return {
         ...state,
         isLoading: true,
-        error: null,
+        error: action.payload,
       };
     case PROJECT_SUCCESS:
       return {

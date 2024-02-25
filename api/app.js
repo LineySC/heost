@@ -40,4 +40,8 @@ app.use("/api/client/", require("./routes/client.route"));
 
 app.use("/api/business/", require("./routes/business.route"));
 
+app.use("/api/employee/", require("./routes/employee.route"));
+
+app.use("/api/stock/", require("./routes/stock.route"));
+
 module.exports = app;

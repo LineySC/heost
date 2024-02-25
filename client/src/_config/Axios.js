@@ -2,6 +2,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const handleError = (error) => {
+  console.log(error);
   if (error.response === undefined) {
     toast.error("Une erreur est survenue, veuillez réessayer plus tard");
   } else if (error.response.status === undefined) {
@@ -24,26 +25,26 @@ const handleError = (error) => {
     toast.error(error.response.data);
   }
   return Promise.reject({ ...error });
-};
+}; /*
 let resultToken;
 if (localStorage.getItem("_session") === null) {
   resultToken = null;
 } else {
   resultToken = JSON.parse(localStorage.getItem("_session"));
-}
+}*/
 
 const Axios = axios.create({
-  baseURL: "http://192.168.1.62:3030/api",
+  baseURL: "http://192.168.1.64:3030/api",
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
   },
 });
-/*
+
 Axios.interceptors.request.use((request) => {
   return request;
 });
-*/
+
 Axios.interceptors.response.use(
   (response) => {
     return response;
