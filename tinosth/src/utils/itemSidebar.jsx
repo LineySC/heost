@@ -113,11 +113,11 @@ const itemSidebar = [
     subnav: [
       {
         subnavName: "Création d'un bon",
-        link: "/purchase_order/create",
+        link: "/purchase_order/new",
       },
       {
         subnavName: "Toutes les commandes",
-        link: "/purchase_order/all",
+        link: "/purchase_order",
       },
       {
         subnavName: "Récéptionner ",

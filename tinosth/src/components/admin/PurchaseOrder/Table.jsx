@@ -31,7 +31,7 @@ const TableOrder = ({ orders, onValidateLine, onValidateAll }) => {
     <>
       <Button
         onClick={onValidateAll}
-        disabled={achats.every((a) => a.validate)}
+        disabled={orders.every((a) => a.validate)}
       >
         Valider tout
       </Button>

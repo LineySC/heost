@@ -12,15 +12,25 @@ import AdminDashboard from "@/pages/admin/AdminDashboard";
 import DashboardLayout from "@/layout/admin/DashboardLayout";
 import ResetPasswordForm from "@/components/auth/ResetPasswordForm";
 
-//Admin
+/** ADMIN */
 
-import New from "@/pages/client/New";
+//Client
+import NewClient from "@/pages/client/New";
 import Client from "@/pages/client/Clients";
+
+//Business
 import Business from "@/pages/admin/business/Business";
 import NewBusiness from "@/pages/admin/business/NewBusiness";
+
+//Purchase Order
+import Received from "@/pages/admin/purchaseOrder/Received";
+import NewPurchaseOrder from "@/pages/admin/purchaseOrder/New";
+import AllPurchaseOrder from "@/pages/admin/purchaseOrder/All";
+
 //Salarie
 import Pointage from "@/pages/salarie/Pointage";
 import SalarieLayout from "@/layout/salarie/SalarieLayout";
+import User from "@/pages/admin/user/User";
 
 const ProtectedRoute = ({ children, routeRole }) => {
   const { isAuthenticated, role } = useSelector((state) => state.auth);
@@ -52,14 +62,22 @@ const AppRoutes = () => {
               </ProtectedRoute>
             }
           >
+            <Route path="user" element={<Outlet/>}>
+              <Route path=":id" element={<User/>}/> 
+            </Route>
             <Route index element={<AdminDashboard />} />
+            <Route path="purchase_order" element={<Outlet />}>
+              <Route index element={<AllPurchaseOrder />} />
+              <Route path='new' element={<NewPurchaseOrder />} />
+              <Route path="received" element={<Received />} />
+            </Route>
             <Route path="business" element={<Outlet />}>
               <Route index element={<Business />} />
               <Route path="new" element={<NewBusiness />} />
             </Route>
             <Route path="client" element={<Outlet />}>
               <Route index element={<Client />} />
-              <Route path="new" element={<New />} />
+              <Route path="new" element={<NewClient />} />
             </Route>
           </Route>
           {/* Salarier */}

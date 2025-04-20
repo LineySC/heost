@@ -24,7 +24,7 @@ const Login = () => {
 
       console.log(response);
       dispatch(
-        login({ role: response.data.role, firstname: response.data.firstname })
+        login({ role: response.data.role, firstname: response.data.firstname, id: response.data.id })
       );
       navigate(
         response.data.role === "admin"
@@ -34,7 +34,7 @@ const Login = () => {
     } catch (error) {
       console.log(error);
       toaster.create({
-        title: error.message || "Erreur",
+        title: error.response.data.message || "Erreur",
         type: "error",
       });
     }

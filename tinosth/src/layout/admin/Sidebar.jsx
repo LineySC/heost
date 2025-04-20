@@ -54,31 +54,11 @@ const Sidebar = () => {
       {/* Sidebar desktop */}
       <Box
         maxH="100vh"
-        p={4}
-        pr={6}
+        p={2}
         position="fixed"
         overflowY="scroll"
-        w="250px"
-        __css={{
-          /* Scrollbar visible même sur WebKit (Chrome, Safari, Edge) */
-          "&::-webkit-scrollbar": {
-            width: "8px",
-          },
-          "&::-webkit-scrollbar-track": {
-            background: "#1f2333",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            background: "#555",
-            borderRadius: "4px",
-          },
-          "&::-webkit-scrollbar-thumb:hover": {
-            background: "#888",
-          },
-
-          /* Firefox */
-          scrollbarWidth: "thin",
-          scrollbarColor: "#555 #1f2333",
-        }}
+        w="240px"
+        
       >
         <VStack align="start">
           <LinkRoute />

@@ -104,7 +104,7 @@ const login = async (req, res) => {
 
     const token = generateToken(user);
 
-    res.json({ token: token, role: user.role, firstname: user.firstname });
+    res.json({ token: token, role: user.role, firstname: user.firstname, id: user.id });
   } catch (error) {
     console.log(error);
     res

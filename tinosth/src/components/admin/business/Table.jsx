@@ -53,9 +53,11 @@ const TableComponent = ({ data }) => {
 
   const columns = useMemo(
     () => [
-      { id: "id", accessorKey: "id", header: "Affaire" },
+      { id: "id", accessorKey: "id", header: "Affaire", size: "100" },
       { accessorKey: "applicant", header: "Demandeur" },
-      { accessorKey: "date_of_demand", header: "Date de demande" },
+      { accessorKey: "date_of_demand", header: "Date de demande",
+        Cell: ({cell}) => <CustomDate value={cell.getValue()} />,
+       },
       { accessorKey: "client_name", header: "Client" },
       { accessorKey: "designation", header: "Désignation" },
       { accessorKey: "nbHours", header: "Nb d'heures" },
@@ -68,10 +70,17 @@ const TableComponent = ({ data }) => {
       { accessorKey: "comment", header: "Commentaire" },
       { accessorKey: "advancement", header: "Avancement" },
       { accessorKey: "in_progress", header: "Encours" },
-      { accessorKey: "finish_date", header: "Date de fin" },
-      { accessorKey: "deliver_dat", header: "Date de livraison" },
+      { accessorKey: "finish_date",
+        header: "Date de fin",
+        Cell: ({cell}) => <CustomDate value={cell.getValue()} />,
+       },
+      { accessorKey: "deliver_date", 
+        header: "Date de livraison",
+        Cell: ({cell}) => <CustomDate value={cell.getValue()} />, },
       { accessorKey: "invoice_number", header: "N° Facture" },
-      { accessorKey: "due_date", header: "Échéance" },
+      { accessorKey: "due_date", header: "Échéance",
+        Cell: ({cell}) => <CustomDate value={cell.getValue()} />,
+       },
     ],
     []
   );
@@ -100,7 +109,7 @@ const TableComponent = ({ data }) => {
       sorting,
     },
     renderTopToolbarCustomActions: () => (
-      <Button onClick={resetState}>Réinitialiser les filtres</Button>
+      <Button variant={"solid"} onClick={resetState}>Réinitialiser les filtres</Button>
     ),
   });
 

@@ -1,5 +1,4 @@
 import { Button } from "@chakra-ui/react";
-import { Switch } from "../ui/switch";
 import {
   MenuContent,
   MenuItem,
@@ -8,9 +7,12 @@ import {
 } from "@/components/ui/menu";
 import { HiCog } from "react-icons/hi";
 import Logout from "../auth/Logout";
-import { ColorModeButton } from "../ui/color-mode";
+import { useSelector } from "react-redux";
+
 
 const Setting = () => {
+  const user = useSelector(state => state.auth)
+
   return (
     <MenuRoot closeOnSelect={false}>
       <MenuTrigger asChild>
@@ -19,7 +21,7 @@ const Setting = () => {
         </Button>
       </MenuTrigger>
       <MenuContent>
-        <MenuItem value="profil">Mon profil</MenuItem>
+        <MenuItem value="profil"><a href={`/user/${user.id}`}>Mon profil</a></MenuItem>
         <MenuItem
           color="fg.error"
           _hover={{ bg: "bg.error", color: "fg.error" }}

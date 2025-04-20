@@ -4,7 +4,7 @@ import { useState } from "react";
 import Axios from "@/utils/Axios";
 import { useNavigate } from "react-router-dom";
 import { toaster } from "@/components/ui/toaster";
-const New = () => {
+const NewClient = () => {
   const [client, setClient] = useState({});
   const navigate = useNavigate();
 
@@ -129,4 +129,4 @@ const New = () => {
   );
 };
 
-export default New;
+export default NewClient;

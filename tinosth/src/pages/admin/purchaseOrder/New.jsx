@@ -1,9 +1,11 @@
-const { Box, Text } = require("@chakra-ui/react");
+import { Box, Text } from "@chakra-ui/react";
 
-const New = () => {
+const NewPurchaseOrder = () => {
   return (
     <Box>
       <Text>Nouvelle commande</Text>
     </Box>
   );
 };
+
+export default NewPurchaseOrder
